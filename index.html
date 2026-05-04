@@ -20,6 +20,18 @@
             margin: 0;
         }
         </style>
+<style>
+    /* تعديل اتجاه النافذة المنبثقة للغة العربية */
+    .leaflet-popup-content, .leaflet-popup-content table {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: Arial, sans-serif;
+    }
+    .leaflet-popup-content th, .leaflet-popup-content td {
+        text-align: right !important;
+        padding-left: 15px;
+    }
+</style>
         <title></title>
     </head>
     <body>
@@ -172,6 +184,9 @@
                 },
                 mouseover: highlightFeature,
             });
+
+            var center = layer.getBounds ? layer.getBounds().getCenter() : layer.getLatLng();
+
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">رقم العقار :</th>\
@@ -191,14 +206,14 @@
                     </tr>\
                     <tr>\
                         <th scope="row">location</th>\
-                        <td>' + (feature.properties['location'] !== null ? autolinker.link(String(feature.properties['location']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=' + center.lat + ',' + center.lng + '" target="_blank" style="color: #d93025; text-decoration: none; font-weight: bold;">فتح في خرائط جوجل 📍</a></td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            layer.on('popupopen', function(e) {
+                addClassToPopupIfMedia(content, e.popup);
+            });
+            layer.bindPopup(content, { maxHeight: 400 });
         }
 
         var pattern_land21_1_0 = new L.StripePattern({
@@ -264,6 +279,9 @@
                 },
                 mouseover: highlightFeature,
             });
+
+            var center = layer.getBounds ? layer.getBounds().getCenter() : layer.getLatLng();
+
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">رقم العقار:</th>\
@@ -281,12 +299,16 @@
                         <th scope="row">المنطقة :</th>\
                         <td>' + (feature.properties['MNTA2A'] !== null ? autolinker.link(String(feature.properties['MNTA2A']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">location</th>\
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=' + center.lat + ',' + center.lng + '" target="_blank" style="color: #d93025; text-decoration: none; font-weight: bold;">فتح في خرائط جوجل 📍</a></td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            layer.on('popupopen', function(e) {
+                addClassToPopupIfMedia(content, e.popup);
+            });
+            layer.bindPopup(content, { maxHeight: 400 });
         }
 
         var pattern_Joinedlayer_2_0 = new L.StripePattern({
@@ -352,6 +374,9 @@
                 },
                 mouseover: highlightFeature,
             });
+
+            var center = layer.getBounds ? layer.getBounds().getCenter() : layer.getLatLng();
+
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">رقم العقار</th>\
@@ -371,14 +396,14 @@
                     </tr>\
                     <tr>\
                         <th scope="row">location</th>\
-                        <td>' + (feature.properties['location'] !== null ? autolinker.link(String(feature.properties['location']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=' + center.lat + ',' + center.lng + '" target="_blank" style="color: #d93025; text-decoration: none; font-weight: bold;">فتح في خرائط جوجل 📍</a></td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            layer.on('popupopen', function(e) {
+                addClassToPopupIfMedia(content, e.popup);
+            });
+            layer.bindPopup(content, { maxHeight: 400 });
         }
 
         var pattern_NEW5_3_0 = new L.StripePattern({
